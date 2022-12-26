@@ -1,0 +1,4 @@
+1,John,Good,20
+2,Mohab,Good,20
+3,Mohab,Good,20
+6,Mohab,Dead,20
