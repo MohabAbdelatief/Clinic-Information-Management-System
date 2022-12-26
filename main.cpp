@@ -21,6 +21,7 @@ void PrintWelcome() {
 	printf("\tWelcome to CIMS System");
 	printf("\t----------------------\n");
 	printf("\t-----------------------------------------------------------------------\n");
+
 }
 int DisplayMenu() {
 	printf("\n\t\t1- Start\n");
