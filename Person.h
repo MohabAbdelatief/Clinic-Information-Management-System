@@ -35,14 +35,12 @@ public:
 		this->address = address;
 		this->id = id;
 	}
-	void edit_person() {
-
-	}
-	void remove_person() {
-
-	}
 	void display_personalInfo() {
-
+		cout << "Name: " << get_name();
+		cout << "Age: " << get_age();
+		cout << "Date of Birth: " << get_dob();
+		cout << "Address: " << get_address();
+		cout << "ID: " << get_id();
 	}
 	// GET
 	string get_name(){

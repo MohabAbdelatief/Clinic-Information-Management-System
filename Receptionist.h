@@ -111,7 +111,9 @@ public:
 		}
 		PatientFile.close();
 	}
-	void print_receipt(Patient patient, Receipt* receipt) {
+	void print_receipt() {
+		Patient patient;
+		Receipt* receipt;
 		string name, doctor_name;
 		int price;
 		cout << "Patient name: ";

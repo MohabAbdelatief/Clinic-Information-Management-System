@@ -44,6 +44,9 @@ void ReceptionMenu() {
 	printf("3- Display Existing Patient\n");
 	printf("4- Display All Patients\n");
 	printf("5- Logout\n");
+	printf("6- Print Receipt\n");
+	printf("7- Create Appointment\n");
+
 }
 void DoctorMenu() {
 	system("cls");
@@ -198,6 +201,27 @@ int main() {
 					{
 						system("cls");
 						goto Logout;
+					}
+					else if (input == 6) {
+						receptionists[0].print_receipt();
+						printf("\n0- Main Menu\n");
+						string new_input;
+						cin >> new_input;
+						if (new_input == "0")
+							goto MenuLoop;
+					}
+					else if (input == 7) {
+						Patient* patient = new Patient();
+						string name;
+						cout << "Name: ";
+						cin >> name;
+						patient->set_name(name);
+						receptionists[0].create_appointment(patient);
+						printf("\n0- Main Menu\n");
+						string new_input;
+						cin >> new_input;
+						if (new_input == "0")
+							goto MenuLoop;
 					}
 					
 				}
