@@ -2,7 +2,8 @@
 #include "Patient.h"
 #include "Staff.h"
 #include <fstream>
-
+#include "Receipt.h"
+#include "Appointment.h"
 class Receptionist : public Staff
 {
 public:
@@ -109,5 +110,45 @@ public:
 			}
 		}
 		PatientFile.close();
+	}
+	void print_receipt(Patient patient, Receipt* receipt) {
+		string name, doctor_name;
+		int price;
+		cout << "Patient name: ";
+		cin >> name;
+		cout << "Doctor name: ";
+		cin >> doctor_name;
+		cout << "Price: ";
+		cin >> price;
+		patient.set_name(name);
+		receipt = new Receipt(name, doctor_name, price);
+		fstream receipt_file;
+		receipt_file.open("receipt.txt", ios::out);
+
+		receipt_file << "\n----------------";
+		receipt_file << "\nPRINTING RECEIPT";
+		receipt_file << "----------------\n";
+		receipt_file << "Patient name: " << patient.get_name() << endl ;
+		receipt_file << "Doctor name: " << receipt->get_doctor_name() << endl;
+		receipt_file << "Price: " << receipt->get_price() << endl;
+
+		receipt_file.close();
+	}
+	void create_appointment(Patient* patient) {
+		fstream appointments;
+		string time, doctor_name, patient_name;
+		int price;
+		cin >> time >> doctor_name >> patient_name;
+		cin >> price;
+		Appointment* appointment;
+		appointment = new Appointment(time, doctor_name, patient_name , price);
+		patient->set_appointment(appointment);	
+		appointments.open("appointments.txt", ios::out);
+		appointments << "Time: "<< appointment->get_time();
+		appointments << "Doctor: " << appointment->get_d_name();
+		appointments << "Patient: " << patient->get_name();
+		appointments << "Price: " << appointment->get_price();
+		appointments.close();
+
 	}
 };
