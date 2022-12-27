@@ -71,6 +71,7 @@ void AdminMenu() {
 	printf("\n4- Logout\n");
 }
 bool VerifyLogin(string& role) {
+	TryAgain:
 	string username, password;
 
 	Staff* staff = new Staff();
@@ -86,11 +87,10 @@ bool VerifyLogin(string& role) {
 		return true;
 	}
 	else {
+		system("cls");
 		printf("\nUser not found!");
-		staff->remove_staff(); // REMOVE VARIABLES
-		staff_members.pop_back(); // REMOVE FROM LIST
 		printf("\nTry Again\n");
-		VerifyLogin(role);
+		goto TryAgain;
 	}
 	return false;
 }
