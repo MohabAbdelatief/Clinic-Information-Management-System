@@ -29,7 +29,14 @@ void Adminstrator::view_staff(){
    user_file.close();
 }
 void Adminstrator::create_meeting(Meeting* meeting) {
-   
+   fstream meeting_file;
+   meeting_file.open("Meetings.txt", ios::out);
+   meeting_file << "ID: " << meeting->get_id() << endl; 
+   meeting_file << "Duration: " << meeting->get_duration() << endl; 
+   meeting_file << "Start Time: " << meeting->get_start_time() << endl; 
+   meeting_file << "End Time: " << meeting->get_end_time() << endl; 
+   meeting_file << "Location: " << meeting->get_location() << endl; 
+
 }
 Adminstrator::Adminstrator() {
    

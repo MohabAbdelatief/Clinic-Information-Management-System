@@ -276,7 +276,11 @@ int main() {
 					Adminstrator* admin = new Adminstrator();
 					int MenuInput;
 					string GoBackInput;
+					int id, start, end;
+					float duration;
+					string location;
 					Staff* new_staff = new Staff();
+					Meeting* meeting;
 					string tmp_username, tmp_password;
 					std::cout << ">>> ";
 					cin >> MenuInput;
@@ -296,7 +300,27 @@ int main() {
 								goto AdminMenu;
 							break;
 						case 2:
-
+							system("cls");
+							meeting = new Meeting();
+							cout << "ID: ";
+							cin >> id;
+							cout << "Duration: ";
+							cin >> duration;
+							cout << "Location: ";
+							cout << location;
+							cout << "Start Time: ";
+							cin >> start;
+							cout << "End Time: ";
+							cin >> end;
+							meeting->set_id(id);
+							meeting->set_duration(duration);
+							meeting->set_location(location);
+							meeting->set_start_end_time(start, end);
+							admin->create_meeting(meeting);
+							printf("\n0- Main Menu\n");
+							cin >> GoBackInput;
+							if (GoBackInput == "0")
+								goto AdminMenu;
 							break;
 						case 3:
 							system("cls");
