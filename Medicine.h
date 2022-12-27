@@ -12,6 +12,12 @@ public:
         concetration = 0.0f;
         reminder = nullptr;
     }
+    std::string get_name() {
+        return name;
+    }
+    float get_concentration() {
+        return concetration;
+    }
     int reminder_no;
     void create_medicine() {
         printf("Name: ");

@@ -66,9 +66,11 @@ public:
 		string Filename = "prescription"+ to_string(index) + ".txt";
 		pp.open(Filename, ios::out);
 		if (pp.is_open()) {
-			pp << prescription->get_pname() << "," << prescription->get_pcondition() 
-			<< "," << prescription->get_age() << "," << prescription->get_dname() << ","
-			<< prescription->get_meds();
+			pp << "Patient: " << prescription->get_pname() << endl;
+			pp << "Condition: " << prescription->get_pcondition()  << endl;
+			pp << "Age: "  << prescription->get_age() << endl;
+			pp << "Doctor: " << prescription->get_dname() << endl;
+			pp << "Medicine: " << prescription->get_meds()->get_name();
 		}
 		pp.close();
 	}

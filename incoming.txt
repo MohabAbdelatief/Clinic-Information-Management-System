@@ -1,1 +1,1 @@
-5,John,Dead
+500,Khaled,Tired

@@ -7,7 +7,7 @@
 #include "Receptionist.h"
 #include "Patient.h"
 #include "Nurse.h"
-
+#include "Adminstrator.h"
 using namespace std;
 
 vector<Staff*> staff_members;
@@ -62,6 +62,13 @@ void NurseMenu() {
 	printf("\n3- View All Patients");
 	printf("\n4- Logout\n");
 
+}
+void AdminMenu() {
+	system("cls");
+	printf("\n1- Add new staff memeber");
+	printf("\n2- Add new meeting");
+	printf("\n3- Display All staff memebers");
+	printf("\n4- Logout\n");
 }
 bool VerifyLogin(string& role) {
 	string username, password;
@@ -259,6 +266,53 @@ int main() {
 					default:
 						goto NurseMenu;
 						break;
+					}
+				}
+				else if(role == "Admin") {
+					AdminMenu:
+					system("cls");
+					
+					AdminMenu();
+					Adminstrator* admin = new Adminstrator();
+					int MenuInput;
+					string GoBackInput;
+					Staff* new_staff = new Staff();
+					string tmp_username, tmp_password;
+					std::cout << ">>> ";
+					cin >> MenuInput;
+					switch (MenuInput) {
+						case 1:
+							system("cls");
+							cout << "New Username: ";
+							cin >> tmp_username;
+							cout << "Password: ";
+							cin >> tmp_password;
+							new_staff->set_username(tmp_username);
+							new_staff->set_password(tmp_password);
+							admin->add_staff(new_staff);
+							printf("\n0- Main Menu\n");
+							cin >> GoBackInput;
+							if (GoBackInput == "0")
+								goto AdminMenu;
+							break;
+						case 2:
+
+							break;
+						case 3:
+							system("cls");
+							printf("\nSTAFF\n");
+							admin->view_staff();
+							printf("\n0- Main Menu\n");
+							cin >> GoBackInput;
+							if (GoBackInput == "0")
+								goto AdminMenu;
+							break;
+						case 4:
+							goto Logout;
+							break;
+						default:
+							goto AdminMenu;
+							break;
 					}
 				}
 			}

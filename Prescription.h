@@ -10,10 +10,6 @@ private:
     string doctor_name;
     Medicine* medicine;
     int patient_age;
-
-
-    
-
 public:
 
     Prescription() {
@@ -58,9 +54,12 @@ public:
         return doctor_name;
     }
     Medicine* get_meds() {
+        
         return medicine;
     }
-    
+    void display_medicines() {
+        medicine->display_medicine();
+    }
     void display_prescription() {
         printf("\n\tPrescription\n");
         cout << "Patient: "<< get_pname() << endl;

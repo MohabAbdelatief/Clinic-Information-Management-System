@@ -7,6 +7,25 @@
 using namespace std;
 class Staff : public Person {
 public:
+	void set_username(string username) {
+		this->username = username;
+	}
+	void set_password(string password) {
+		this->password = password;
+	}
+	void set_role(string role) {
+		this->role = role;
+	}
+
+	string get_username() {
+		return this->username;
+	}
+	string get_password() {
+		return this->password;
+	}
+	string get_role() {
+		return this->role;
+	}
 	std::fstream file;
 	bool login() {
 		file.open("users.txt");
